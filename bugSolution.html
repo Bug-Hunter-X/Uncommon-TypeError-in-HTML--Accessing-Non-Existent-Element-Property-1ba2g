@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Uncommon HTML Bug Solution</title>
+</head>
+<body>
+  <div id="myDiv">
+    <p>This is some text.</p>
+  </div>
+  <script>
+    const myDiv = document.getElementById("myDiv");
+    // Check if the property exists before accessing it
+    if (myDiv && "nonExistentProperty" in myDiv) {
+      console.log(myDiv.nonExistentProperty);
+    } else {
+      console.log('Property does not exist');
+    }
+    // Safer way to access properties: check if the property exists and is not null or undefined
+    if(myDiv && myDiv.hasOwnProperty('innerHTML')){
+        console.log(myDiv.innerHTML);
+    }
+  </script>
+</body>
+</html>
